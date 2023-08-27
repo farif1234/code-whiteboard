@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "LeetCode Whiteboard",
+    "version": "1.0",
+    "description": "Adds a whiteboard overlay to LeetCode website.",
+    "permissions": ["activeTab"],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://leetcode.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
