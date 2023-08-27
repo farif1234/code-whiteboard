@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "LeetCode Whiteboard",
+    "name": "Overlay Whiteboard",
     "version": "1.0",
     "description": "Adds a whiteboard overlay to LeetCode website.",
     "permissions": ["activeTab"],

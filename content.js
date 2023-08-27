@@ -29,13 +29,26 @@ console.log("LeetCode Whiteboard Extension loaded");
 const button = document.createElement("button");
 button.id = "whiteboard-button";
 button.style.position = "fixed";
-button.style.top = "100px";
-button.style.right = "10px";
+button.style.top = "20px";
+button.style.left = "50%";
 button.textContent = "Open Whiteboard";
 button.style.zIndex = "700"; // Ensure the button is on top of everything
 
 // Add button to the page
 document.body.appendChild(button);
+
+// Create clear button element
+const clearButton = document.createElement("button");
+clearButton.id = "clear-button";
+clearButton.textContent = "Clear";
+clearButton.style.position = "fixed";
+clearButton.style.top = "40px";
+clearButton.style.left = "50%";
+clearButton.style.zIndex = "700";
+// clearButton.style.display = "none";
+
+// Add clear button to the page
+document.body.appendChild(clearButton);
 
 // Create overlay div (whiteboard)
 // const overlay = document.createElement("div");
@@ -61,6 +74,7 @@ canvas.style.width = "100%";
 canvas.style.height = "100%";
 canvas.style.zIndex = "500";
 canvas.style.display = "none";
+canvas.style.cursor = "crosshair";
 
 // overlay.appendChild(canvas);
 
@@ -69,8 +83,18 @@ if (!document.getElementById("whiteboard")) {
     document.body.appendChild(canvas);
 }
 
+clearButton.addEventListener("click", () => {
+    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+});
+
 // Handle button click event
 button.addEventListener("click", () => {
     // Toggle overlay visibility
     canvas.style.display = canvas.style.display === "none" ? "block" : "none";
+    button.textContent =
+        button.textContent === "Open Whiteboard"
+            ? "Close Whiteboard"
+            : "Open Whiteboard";
+    // clearButton.styledisplay =
+    //     canvas.style.display === "none" ? "block" : "none";
 });

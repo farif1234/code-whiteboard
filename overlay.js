@@ -1,5 +1,6 @@
 var myCanvas = document.getElementById("whiteboard");
 var ctx = myCanvas.getContext("2d");
+// var clearButton = document.getElementById("clear-button");
 
 // Fill Window Width and Height
 myCanvas.width = window.innerWidth;
